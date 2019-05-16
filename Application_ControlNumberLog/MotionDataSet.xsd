@@ -168,7 +168,7 @@ SELECT ID, [User], Level, Password FROM User_Info WHERE (ID = @ID)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="DB_A0A72F_MotionDataConnectionString (Settings)" DbObjectName="DB_A0A72F_MotionData.dbo.User_Info" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getLevel" Modifier="Public" Name="getLevel" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="getLevel">
+              <DbSource ConnectionRef="DB_A0A72F_MotionDataConnectionString (Settings)" DbObjectName="DB_A0A72F_MotionData.dbo.User_Info" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getLevel" Modifier="Public" Name="getLevel" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="getLevel">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Level
@@ -180,7 +180,7 @@ WHERE        (ID = @ID)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DB_A0A72F_MotionDataConnectionString (Settings)" DbObjectName="DB_A0A72F_MotionData.dbo.User_Info" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getPassword" Modifier="Public" Name="getPassword" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="getPassword">
+              <DbSource ConnectionRef="DB_A0A72F_MotionDataConnectionString (Settings)" DbObjectName="DB_A0A72F_MotionData.dbo.User_Info" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getPassword" Modifier="Public" Name="getPassword" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="getPassword">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Password
@@ -270,6 +270,333 @@ SELECT ManualNumber, ManualName, TOC, IssuedTo, RemovedOrObsolete FROM ManualIss
                     <CommandText>SELECT        MAX(ManualNumber) AS Expr1
 FROM            ManualIssueLog</CommandText>
                     <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ECRTableAdapter" GeneratorDataComponentClassName="ECRTableAdapter" Name="ECR" UserDataComponentName="ECRTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DB_A0A72F_MotionDataConnectionString (Settings)" DbObjectName="DB_A0A72F_MotionData.dbo.ECR" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[ECR] WHERE (([ECR_Number] = @Original_ECR_Number) AND ((@IsNull_Originator = 1 AND [Originator] IS NULL) OR ([Originator] = @Original_Originator)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR ([Date] = @Original_Date)) AND ((@IsNull_TypeApproval = 1 AND [TypeApproval] IS NULL) OR ([TypeApproval] = @Original_TypeApproval)) AND ((@IsNull_Change = 1 AND [Change] IS NULL) OR ([Change] = @Original_Change)) AND ((@IsNull_Disposition = 1 AND [Disposition] IS NULL) OR ([Disposition] = @Original_Disposition)) AND ((@IsNull_QualityControl = 1 AND [QualityControl] IS NULL) OR ([QualityControl] = @Original_QualityControl)) AND ((@IsNull_Purchasing = 1 AND [Purchasing] IS NULL) OR ([Purchasing] = @Original_Purchasing)) AND ((@IsNull_Engineering = 1 AND [Engineering] IS NULL) OR ([Engineering] = @Original_Engineering)) AND ((@IsNull_Manufacturing = 1 AND [Manufacturing] IS NULL) OR ([Manufacturing] = @Original_Manufacturing)) AND ((@IsNull_Decision = 1 AND [Decision] IS NULL) OR ([Decision] = @Original_Decision)) AND ((@IsNull_Closed = 1 AND [Closed] IS NULL) OR ([Closed] = @Original_Closed)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ECR_Number" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ECR_Number" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Originator" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Originator" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Originator" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Originator" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Date" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Date" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TypeApproval" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TypeApproval" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TypeApproval" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TypeApproval" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Change" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Change" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Change" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Change" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Disposition" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Disposition" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Disposition" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Disposition" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_QualityControl" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="QualityControl" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_QualityControl" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="QualityControl" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Purchasing" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Purchasing" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Purchasing" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Purchasing" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Engineering" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Engineering" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Engineering" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Engineering" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Manufacturing" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Manufacturing" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Manufacturing" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Manufacturing" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Decision" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Decision" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Decision" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Decision" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Closed" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Closed" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Closed" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Closed" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[ECR] ([ECR_Number], [Originator], [Date], [TypeApproval], [Change], [Disposition], [QualityControl], [Purchasing], [Engineering], [Manufacturing], [Decision], [Closed]) VALUES (@ECR_Number, @Originator, @Date, @TypeApproval, @Change, @Disposition, @QualityControl, @Purchasing, @Engineering, @Manufacturing, @Decision, @Closed);
+SELECT ECR_Number, Originator, Date, TypeApproval, Change, Disposition, QualityControl, Purchasing, Engineering, Manufacturing, Decision, Closed FROM ECR WHERE (ECR_Number = @ECR_Number)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ECR_Number" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ECR_Number" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Originator" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Originator" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Date" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TypeApproval" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TypeApproval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Change" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Change" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Disposition" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Disposition" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@QualityControl" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="QualityControl" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Purchasing" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Purchasing" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Engineering" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Engineering" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Manufacturing" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Manufacturing" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Decision" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Decision" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Closed" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Closed" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ECR_Number, Originator, Date, TypeApproval, Change, Disposition, QualityControl, Purchasing, Engineering, Manufacturing, Decision, Closed FROM dbo.ECR</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[ECR] SET [ECR_Number] = @ECR_Number, [Originator] = @Originator, [Date] = @Date, [TypeApproval] = @TypeApproval, [Change] = @Change, [Disposition] = @Disposition, [QualityControl] = @QualityControl, [Purchasing] = @Purchasing, [Engineering] = @Engineering, [Manufacturing] = @Manufacturing, [Decision] = @Decision, [Closed] = @Closed WHERE (([ECR_Number] = @Original_ECR_Number) AND ((@IsNull_Originator = 1 AND [Originator] IS NULL) OR ([Originator] = @Original_Originator)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR ([Date] = @Original_Date)) AND ((@IsNull_TypeApproval = 1 AND [TypeApproval] IS NULL) OR ([TypeApproval] = @Original_TypeApproval)) AND ((@IsNull_Change = 1 AND [Change] IS NULL) OR ([Change] = @Original_Change)) AND ((@IsNull_Disposition = 1 AND [Disposition] IS NULL) OR ([Disposition] = @Original_Disposition)) AND ((@IsNull_QualityControl = 1 AND [QualityControl] IS NULL) OR ([QualityControl] = @Original_QualityControl)) AND ((@IsNull_Purchasing = 1 AND [Purchasing] IS NULL) OR ([Purchasing] = @Original_Purchasing)) AND ((@IsNull_Engineering = 1 AND [Engineering] IS NULL) OR ([Engineering] = @Original_Engineering)) AND ((@IsNull_Manufacturing = 1 AND [Manufacturing] IS NULL) OR ([Manufacturing] = @Original_Manufacturing)) AND ((@IsNull_Decision = 1 AND [Decision] IS NULL) OR ([Decision] = @Original_Decision)) AND ((@IsNull_Closed = 1 AND [Closed] IS NULL) OR ([Closed] = @Original_Closed)));
+SELECT ECR_Number, Originator, Date, TypeApproval, Change, Disposition, QualityControl, Purchasing, Engineering, Manufacturing, Decision, Closed FROM ECR WHERE (ECR_Number = @ECR_Number)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ECR_Number" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ECR_Number" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Originator" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Originator" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Date" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TypeApproval" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TypeApproval" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Change" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Change" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Disposition" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Disposition" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@QualityControl" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="QualityControl" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Purchasing" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Purchasing" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Engineering" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Engineering" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Manufacturing" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Manufacturing" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Decision" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Decision" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Closed" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Closed" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ECR_Number" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ECR_Number" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Originator" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Originator" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Originator" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Originator" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Date" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Date" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TypeApproval" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TypeApproval" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_TypeApproval" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TypeApproval" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Change" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Change" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Change" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Change" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Disposition" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Disposition" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Disposition" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Disposition" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_QualityControl" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="QualityControl" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_QualityControl" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="QualityControl" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Purchasing" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Purchasing" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Purchasing" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Purchasing" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Engineering" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Engineering" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Engineering" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Engineering" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Manufacturing" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Manufacturing" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Manufacturing" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Manufacturing" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Decision" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Decision" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Decision" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Decision" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Closed" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Closed" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Closed" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Closed" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ECR_Number" DataSetColumn="ECR_Number" />
+              <Mapping SourceColumn="Originator" DataSetColumn="Originator" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="TypeApproval" DataSetColumn="TypeApproval" />
+              <Mapping SourceColumn="Change" DataSetColumn="Change" />
+              <Mapping SourceColumn="Disposition" DataSetColumn="Disposition" />
+              <Mapping SourceColumn="QualityControl" DataSetColumn="QualityControl" />
+              <Mapping SourceColumn="Purchasing" DataSetColumn="Purchasing" />
+              <Mapping SourceColumn="Engineering" DataSetColumn="Engineering" />
+              <Mapping SourceColumn="Manufacturing" DataSetColumn="Manufacturing" />
+              <Mapping SourceColumn="Decision" DataSetColumn="Decision" />
+              <Mapping SourceColumn="Closed" DataSetColumn="Closed" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DB_A0A72F_MotionDataConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="GetIdentity" Modifier="Public" Name="GetIdentity" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetIdentity">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT MAX(ECR_Number) FROM ECR</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DB_A0A72F_MotionDataConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateEngineering" Modifier="Public" Name="UpdateEngineering" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="UpdateEngineering">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [dbo].[ECR] SET [Engineering] = @Engineering WHERE (ECR_Number = @ECR_Number)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Engineering" ColumnName="Engineering" DataSourceName="DB_A0A72F_MotionData.dbo.ECR" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Engineering" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Engineering" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ECR_Number" ColumnName="ECR_Number" DataSourceName="DB_A0A72F_MotionData.dbo.ECR" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ECR_Number" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ECR_Number" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DB_A0A72F_MotionDataConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateManufacturing" Modifier="Public" Name="UpdateManufacturing" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateManufacturing">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       ECR
+SET                Manufacturing = @Manufacturing
+WHERE        (ECR_Number = @ECR); </CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Manufacturing" ColumnName="Manufacturing" DataSourceName="DB_A0A72F_MotionData.dbo.ECR" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Manufacturing" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Manufacturing" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ECR" ColumnName="ECR_Number" DataSourceName="DB_A0A72F_MotionData.dbo.ECR" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ECR" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ECR_Number" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DB_A0A72F_MotionDataConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdatePurchasing" Modifier="Public" Name="UpdatePurchasing" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdatePurchasing">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [dbo].[ECR] SET [Purchasing] = @Purchasing WHERE (ECR_Number = @ECR_Number)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Purchasing" ColumnName="Purchasing" DataSourceName="DB_A0A72F_MotionData.dbo.ECR" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Purchasing" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Purchasing" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ECR_Number" ColumnName="ECR_Number" DataSourceName="DB_A0A72F_MotionData.dbo.ECR" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ECR_Number" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ECR_Number" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DB_A0A72F_MotionDataConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQC" Modifier="Public" Name="UpdateQC" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQC">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [dbo].[ECR] SET [QualityControl] = @QualityControl WHERE (ECR_Number = @ECR_Number)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="QualityControl" ColumnName="QualityControl" DataSourceName="DB_A0A72F_MotionData.dbo.ECR" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@QualityControl" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="QualityControl" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ECR_Number" ColumnName="ECR_Number" DataSourceName="DB_A0A72F_MotionData.dbo.ECR" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ECR_Number" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ECR_Number" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ECR_LevelsTableAdapter" GeneratorDataComponentClassName="ECR_LevelsTableAdapter" Name="ECR_Levels" UserDataComponentName="ECR_LevelsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DB_A0A72F_MotionDataConnectionString (Settings)" DbObjectName="DB_A0A72F_MotionData.dbo.ECR_Levels" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[ECR_Levels] WHERE (([ID] = @Original_ID) AND ([Level] = @Original_Level))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Level" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Level" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[ECR_Levels] ([Level]) VALUES (@Level);
+SELECT ID, Level FROM ECR_Levels WHERE (ID = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Level" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Level" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, [Level] FROM dbo.ECR_Levels</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[ECR_Levels] SET [Level] = @Level WHERE (([ID] = @Original_ID) AND ([Level] = @Original_Level));
+SELECT ID, Level FROM ECR_Levels WHERE (ID = @ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Level" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Level" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Level" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Level" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="ID" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="Level" DataSetColumn="Level" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ECR_UsersTableAdapter" GeneratorDataComponentClassName="ECR_UsersTableAdapter" Name="ECR_Users" UserDataComponentName="ECR_UsersTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DB_A0A72F_MotionDataConnectionString (Settings)" DbObjectName="DB_A0A72F_MotionData.dbo.ECR_Users" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[ECR_Users] WHERE (([ID] = @Original_ID) AND ([Name] = @Original_Name) AND ([Level] = @Original_Level) AND ([Password] = @Original_Password) AND ([Email] = @Original_Email))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Level" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Level" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Password" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Email" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[ECR_Users] ([Name], [Level], [Password], [Email]) VALUES (@Name, @Level, @Password, @Email);
+SELECT ID, Name, Level, Password, Email FROM ECR_Users WHERE (ID = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Level" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Level" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Password" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Email" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, Name, [Level], Password, Email FROM dbo.ECR_Users</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[ECR_Users] SET [Name] = @Name, [Level] = @Level, [Password] = @Password, [Email] = @Email WHERE (([ID] = @Original_ID) AND ([Name] = @Original_Name) AND ([Level] = @Original_Level) AND ([Password] = @Original_Password) AND ([Email] = @Original_Email));
+SELECT ID, Name, Level, Password, Email FROM ECR_Users WHERE (ID = @ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Level" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Level" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Password" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Email" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Level" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Level" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Password" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Password" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Email" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="ID" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Level" DataSetColumn="Level" />
+              <Mapping SourceColumn="Password" DataSetColumn="Password" />
+              <Mapping SourceColumn="Email" DataSetColumn="Email" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="DB_A0A72F_MotionDataConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteByID" Modifier="Public" Name="DeleteByID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteByID">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM [dbo].[ECR_Users] WHERE (([ID] = @Original_ID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_ID" ColumnName="ID" DataSourceName="DB_A0A72F_MotionData.dbo.ECR_Users" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Original_ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DB_A0A72F_MotionDataConnectionString (Settings)" DbObjectName="DB_A0A72F_MotionData.dbo.ECR_Users" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getLevel" Modifier="Public" Name="getLevel" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="getLevel">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Level
+FROM            ECR_Users
+WHERE        (ID = @myID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="myID" ColumnName="ID" DataSourceName="DB_A0A72F_MotionData.dbo.ECR_Users" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@myID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DB_A0A72F_MotionDataConnectionString (Settings)" DbObjectName="DB_A0A72F_MotionData.dbo.ECR_Users" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getPassword" Modifier="Public" Name="getPassword" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="getPassword">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Password FROM ECR_Users WHERE ID = @myID</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="myID" ColumnName="ID" DataSourceName="DB_A0A72F_MotionData.dbo.ECR_Users" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@myID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DB_A0A72F_MotionDataConnectionString (Settings)" DbObjectName="DB_A0A72F_MotionData.dbo.ECR_Users" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="getUser" Modifier="Public" Name="getUser" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="getUser">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Name FROM ECR_Users WHERE ID = @myID</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="myID" ColumnName="ID" DataSourceName="DB_A0A72F_MotionData.dbo.ECR_Users" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@myID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
@@ -395,6 +722,139 @@ FROM            ManualIssueLog</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ECR" msprop:Generator_TableClassName="ECRDataTable" msprop:Generator_TableVarName="tableECR" msprop:Generator_RowChangedName="ECRRowChanged" msprop:Generator_TablePropName="ECR" msprop:Generator_RowDeletingName="ECRRowDeleting" msprop:Generator_RowChangingName="ECRRowChanging" msprop:Generator_RowEvHandlerName="ECRRowChangeEventHandler" msprop:Generator_RowDeletedName="ECRRowDeleted" msprop:Generator_RowClassName="ECRRow" msprop:Generator_UserTableName="ECR" msprop:Generator_RowEvArgName="ECRRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ECR_Number" msprop:Generator_ColumnVarNameInTable="columnECR_Number" msprop:Generator_ColumnPropNameInRow="ECR_Number" msprop:Generator_ColumnPropNameInTable="ECR_NumberColumn" msprop:Generator_UserColumnName="ECR_Number" type="xs:int" />
+              <xs:element name="Originator" msprop:Generator_ColumnVarNameInTable="columnOriginator" msprop:Generator_ColumnPropNameInRow="Originator" msprop:Generator_ColumnPropNameInTable="OriginatorColumn" msprop:Generator_UserColumnName="Originator" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TypeApproval" msprop:Generator_ColumnVarNameInTable="columnTypeApproval" msprop:Generator_ColumnPropNameInRow="TypeApproval" msprop:Generator_ColumnPropNameInTable="TypeApprovalColumn" msprop:Generator_UserColumnName="TypeApproval" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Change" msprop:Generator_ColumnVarNameInTable="columnChange" msprop:Generator_ColumnPropNameInRow="Change" msprop:Generator_ColumnPropNameInTable="ChangeColumn" msprop:Generator_UserColumnName="Change" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Disposition" msprop:Generator_ColumnVarNameInTable="columnDisposition" msprop:Generator_ColumnPropNameInRow="Disposition" msprop:Generator_ColumnPropNameInTable="DispositionColumn" msprop:Generator_UserColumnName="Disposition" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="QualityControl" msprop:Generator_ColumnVarNameInTable="columnQualityControl" msprop:Generator_ColumnPropNameInRow="QualityControl" msprop:Generator_ColumnPropNameInTable="QualityControlColumn" msprop:Generator_UserColumnName="QualityControl" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Purchasing" msprop:Generator_ColumnVarNameInTable="columnPurchasing" msprop:Generator_ColumnPropNameInRow="Purchasing" msprop:Generator_ColumnPropNameInTable="PurchasingColumn" msprop:Generator_UserColumnName="Purchasing" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Engineering" msprop:Generator_ColumnVarNameInTable="columnEngineering" msprop:Generator_ColumnPropNameInRow="Engineering" msprop:Generator_ColumnPropNameInTable="EngineeringColumn" msprop:Generator_UserColumnName="Engineering" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Manufacturing" msprop:Generator_ColumnVarNameInTable="columnManufacturing" msprop:Generator_ColumnPropNameInRow="Manufacturing" msprop:Generator_ColumnPropNameInTable="ManufacturingColumn" msprop:Generator_UserColumnName="Manufacturing" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Decision" msprop:Generator_ColumnVarNameInTable="columnDecision" msprop:Generator_ColumnPropNameInRow="Decision" msprop:Generator_ColumnPropNameInTable="DecisionColumn" msprop:Generator_UserColumnName="Decision" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Closed" msprop:Generator_ColumnVarNameInTable="columnClosed" msprop:Generator_ColumnPropNameInRow="Closed" msprop:Generator_ColumnPropNameInTable="ClosedColumn" msprop:Generator_UserColumnName="Closed" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ECR_Levels" msprop:Generator_TableClassName="ECR_LevelsDataTable" msprop:Generator_TableVarName="tableECR_Levels" msprop:Generator_RowChangedName="ECR_LevelsRowChanged" msprop:Generator_TablePropName="ECR_Levels" msprop:Generator_RowDeletingName="ECR_LevelsRowDeleting" msprop:Generator_RowChangingName="ECR_LevelsRowChanging" msprop:Generator_RowEvHandlerName="ECR_LevelsRowChangeEventHandler" msprop:Generator_RowDeletedName="ECR_LevelsRowDeleted" msprop:Generator_RowClassName="ECR_LevelsRow" msprop:Generator_UserTableName="ECR_Levels" msprop:Generator_RowEvArgName="ECR_LevelsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="Level" msprop:Generator_ColumnVarNameInTable="columnLevel" msprop:Generator_ColumnPropNameInRow="Level" msprop:Generator_ColumnPropNameInTable="LevelColumn" msprop:Generator_UserColumnName="Level">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ECR_Users" msprop:Generator_TableClassName="ECR_UsersDataTable" msprop:Generator_TableVarName="tableECR_Users" msprop:Generator_RowChangedName="ECR_UsersRowChanged" msprop:Generator_TablePropName="ECR_Users" msprop:Generator_RowDeletingName="ECR_UsersRowDeleting" msprop:Generator_RowChangingName="ECR_UsersRowChanging" msprop:Generator_RowEvHandlerName="ECR_UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="ECR_UsersRowDeleted" msprop:Generator_RowClassName="ECR_UsersRow" msprop:Generator_UserTableName="ECR_Users" msprop:Generator_RowEvArgName="ECR_UsersRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Level" msprop:Generator_ColumnVarNameInTable="columnLevel" msprop:Generator_ColumnPropNameInRow="Level" msprop:Generator_ColumnPropNameInTable="LevelColumn" msprop:Generator_UserColumnName="Level">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Password" msprop:Generator_ColumnVarNameInTable="columnPassword" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_UserColumnName="Password">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -408,6 +868,18 @@ FROM            ManualIssueLog</CommandText>
     <xs:unique name="ManualIssueLog_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:ManualIssueLog" />
       <xs:field xpath="mstns:ManualNumber" />
+    </xs:unique>
+    <xs:unique name="ECR_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ECR" />
+      <xs:field xpath="mstns:ECR_Number" />
+    </xs:unique>
+    <xs:unique name="ECR_Levels_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ECR_Levels" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="ECR_Users_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ECR_Users" />
+      <xs:field xpath="mstns:ID" />
     </xs:unique>
   </xs:element>
 </xs:schema>

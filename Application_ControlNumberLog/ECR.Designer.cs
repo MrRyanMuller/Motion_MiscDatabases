@@ -32,14 +32,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ECR));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtClosed = new System.Windows.Forms.TextBox();
+            this.comboDecision = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtOriginator = new System.Windows.Forms.TextBox();
             this.btnOriginators = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtDisposition = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtChange = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.comboTypeApproval = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboOriginator = new System.Windows.Forms.ComboBox();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.motionDataSet = new Application_ControlNumberLog.MotionDataSet();
@@ -57,7 +61,6 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
-            this.btnDuplicate = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.btnManageUsers = new System.Windows.Forms.Button();
@@ -69,11 +72,19 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnSaveTable = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.manualNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.manualNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tOCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.issuedToDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.removedOrObsoleteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eCRNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.originatorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.changeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeApprovalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qualityControlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.purchasingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.engineeringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.manufacturingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.decisionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.closedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eCRTableAdapter = new Application_ControlNumberLog.MotionDataSetTableAdapters.ECRTableAdapter();
+            this.ecR_UsersTableAdapter1 = new Application_ControlNumberLog.MotionDataSetTableAdapters.ECR_UsersTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -98,21 +109,24 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.txtClosed);
+            this.tabPage1.Controls.Add(this.comboDecision);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.txtOriginator);
             this.tabPage1.Controls.Add(this.btnOriginators);
-            this.tabPage1.Controls.Add(this.textBox2);
+            this.tabPage1.Controls.Add(this.txtDisposition);
             this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.txtChange);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.comboTypeApproval);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.comboOriginator);
             this.tabPage1.Controls.Add(this.bindingNavigator1);
             this.tabPage1.Controls.Add(this.btnSave);
             this.tabPage1.Controls.Add(this.btnDelete);
             this.tabPage1.Controls.Add(this.btnClose);
             this.tabPage1.Controls.Add(this.btnPrevious);
             this.tabPage1.Controls.Add(this.btnNext);
-            this.tabPage1.Controls.Add(this.btnDuplicate);
             this.tabPage1.Controls.Add(this.btnNew);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.btnManageUsers);
@@ -128,54 +142,98 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Main";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(402, 86);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(80, 20);
+            this.label8.TabIndex = 111;
+            this.label8.Text = "Closed By";
+            // 
+            // txtClosed
+            // 
+            this.txtClosed.Location = new System.Drawing.Point(488, 83);
+            this.txtClosed.Name = "txtClosed";
+            this.txtClosed.Size = new System.Drawing.Size(217, 26);
+            this.txtClosed.TabIndex = 110;
+            // 
+            // comboDecision
+            // 
+            this.comboDecision.FormattingEnabled = true;
+            this.comboDecision.Items.AddRange(new object[] {
+            "IMPLEMENT",
+            "REJECT"});
+            this.comboDecision.Location = new System.Drawing.Point(488, 49);
+            this.comboDecision.Name = "comboDecision";
+            this.comboDecision.Size = new System.Drawing.Size(217, 28);
+            this.comboDecision.TabIndex = 109;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(412, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(70, 20);
+            this.label7.TabIndex = 108;
+            this.label7.Text = "Decision";
+            // 
+            // txtOriginator
+            // 
+            this.txtOriginator.Location = new System.Drawing.Point(143, 49);
+            this.txtOriginator.Name = "txtOriginator";
+            this.txtOriginator.Size = new System.Drawing.Size(217, 26);
+            this.txtOriginator.TabIndex = 107;
+            // 
             // btnOriginators
             // 
-            this.btnOriginators.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnOriginators.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOriginators.AutoSize = true;
-            this.btnOriginators.Location = new System.Drawing.Point(156, 363);
+            this.btnOriginators.Location = new System.Drawing.Point(537, 384);
             this.btnOriginators.Name = "btnOriginators";
             this.btnOriginators.Size = new System.Drawing.Size(158, 30);
             this.btnOriginators.TabIndex = 106;
-            this.btnOriginators.Text = "Manage Originators";
+            this.btnOriginators.Text = "Approve";
             this.btnOriginators.UseVisualStyleBackColor = true;
+            this.btnOriginators.Click += new System.EventHandler(this.btnOriginators_Click);
             // 
-            // textBox2
+            // txtDisposition
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtDisposition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(212, 156);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(271, 192);
-            this.textBox2.TabIndex = 105;
+            this.txtDisposition.Location = new System.Drawing.Point(253, 156);
+            this.txtDisposition.Multiline = true;
+            this.txtDisposition.Name = "txtDisposition";
+            this.txtDisposition.Size = new System.Drawing.Size(230, 192);
+            this.txtDisposition.TabIndex = 105;
             // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(293, 133);
+            this.label6.Location = new System.Drawing.Point(321, 133);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 20);
             this.label6.TabIndex = 104;
             this.label6.Text = "Disposition";
             // 
-            // textBox1
+            // txtChange
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtChange.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(24, 156);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 192);
-            this.textBox1.TabIndex = 103;
+            this.txtChange.Location = new System.Drawing.Point(24, 156);
+            this.txtChange.Multiline = true;
+            this.txtChange.Name = "txtChange";
+            this.txtChange.Size = new System.Drawing.Size(223, 192);
+            this.txtChange.TabIndex = 103;
             // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(84, 133);
+            this.label4.Location = new System.Drawing.Point(59, 133);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(150, 20);
             this.label4.TabIndex = 102;
@@ -184,6 +242,9 @@
             // comboTypeApproval
             // 
             this.comboTypeApproval.FormattingEnabled = true;
+            this.comboTypeApproval.Items.AddRange(new object[] {
+            "GENERAL",
+            "URGENT"});
             this.comboTypeApproval.Location = new System.Drawing.Point(143, 83);
             this.comboTypeApproval.Name = "comboTypeApproval";
             this.comboTypeApproval.Size = new System.Drawing.Size(217, 28);
@@ -197,14 +258,6 @@
             this.label3.Size = new System.Drawing.Size(127, 20);
             this.label3.TabIndex = 100;
             this.label3.Text = "Type of Approval";
-            // 
-            // comboOriginator
-            // 
-            this.comboOriginator.FormattingEnabled = true;
-            this.comboOriginator.Location = new System.Drawing.Point(143, 49);
-            this.comboOriginator.Name = "comboOriginator";
-            this.comboOriginator.Size = new System.Drawing.Size(217, 28);
-            this.comboOriginator.TabIndex = 99;
             // 
             // bindingNavigator1
             // 
@@ -236,7 +289,7 @@
             // 
             // bindingSource1
             // 
-            this.bindingSource1.DataMember = "ManualIssueLog";
+            this.bindingSource1.DataMember = "ECR";
             this.bindingSource1.DataSource = this.motionDataSet;
             // 
             // motionDataSet
@@ -351,7 +404,7 @@
             // 
             this.btnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrevious.AutoSize = true;
-            this.btnPrevious.Location = new System.Drawing.Point(518, 364);
+            this.btnPrevious.Location = new System.Drawing.Point(518, 327);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(98, 31);
             this.btnPrevious.TabIndex = 89;
@@ -363,25 +416,13 @@
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNext.AutoSize = true;
-            this.btnNext.Location = new System.Drawing.Point(518, 327);
+            this.btnNext.Location = new System.Drawing.Point(518, 290);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(98, 31);
             this.btnNext.TabIndex = 88;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnDuplicate
-            // 
-            this.btnDuplicate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDuplicate.AutoSize = true;
-            this.btnDuplicate.Location = new System.Drawing.Point(518, 290);
-            this.btnDuplicate.Name = "btnDuplicate";
-            this.btnDuplicate.Size = new System.Drawing.Size(98, 31);
-            this.btnDuplicate.TabIndex = 87;
-            this.btnDuplicate.Text = "Duplicate";
-            this.btnDuplicate.UseVisualStyleBackColor = true;
-            this.btnDuplicate.Click += new System.EventHandler(this.btnDuplicate_Click);
             // 
             // btnNew
             // 
@@ -422,7 +463,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(390, 52);
+            this.label5.Location = new System.Drawing.Point(314, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 20);
             this.label5.TabIndex = 27;
@@ -430,7 +471,7 @@
             // 
             // txtDate
             // 
-            this.txtDate.Location = new System.Drawing.Point(440, 49);
+            this.txtDate.Location = new System.Drawing.Point(364, 6);
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(128, 26);
             this.txtDate.TabIndex = 26;
@@ -459,6 +500,7 @@
             this.txtECRNumber.Name = "txtECRNumber";
             this.txtECRNumber.Size = new System.Drawing.Size(149, 26);
             this.txtECRNumber.TabIndex = 18;
+            this.txtECRNumber.TextChanged += new System.EventHandler(this.txtECRNumber_TextChanged);
             // 
             // tabPage2
             // 
@@ -493,55 +535,117 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.manualNumberDataGridViewTextBoxColumn,
-            this.manualNameDataGridViewTextBoxColumn,
-            this.tOCDataGridViewTextBoxColumn,
-            this.issuedToDataGridViewTextBoxColumn,
-            this.removedOrObsoleteDataGridViewTextBoxColumn});
+            this.eCRNumberDataGridViewTextBoxColumn,
+            this.originatorDataGridViewTextBoxColumn,
+            this.changeDataGridViewTextBoxColumn,
+            this.typeApprovalDataGridViewTextBoxColumn,
+            this.qualityControlDataGridViewTextBoxColumn,
+            this.purchasingDataGridViewTextBoxColumn,
+            this.engineeringDataGridViewTextBoxColumn,
+            this.manufacturingDataGridViewTextBoxColumn,
+            this.decisionDataGridViewTextBoxColumn,
+            this.closedDataGridViewTextBoxColumn,
+            this.dateDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(3, 41);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(717, 384);
             this.dataGridView1.TabIndex = 0;
             // 
-            // manualNumberDataGridViewTextBoxColumn
+            // eCRNumberDataGridViewTextBoxColumn
             // 
-            this.manualNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.manualNumberDataGridViewTextBoxColumn.DataPropertyName = "ManualNumber";
-            this.manualNumberDataGridViewTextBoxColumn.HeaderText = "ManualNumber";
-            this.manualNumberDataGridViewTextBoxColumn.Name = "manualNumberDataGridViewTextBoxColumn";
-            this.manualNumberDataGridViewTextBoxColumn.Width = 142;
+            this.eCRNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.eCRNumberDataGridViewTextBoxColumn.DataPropertyName = "ECR_Number";
+            this.eCRNumberDataGridViewTextBoxColumn.HeaderText = "ECR #";
+            this.eCRNumberDataGridViewTextBoxColumn.Name = "eCRNumberDataGridViewTextBoxColumn";
+            this.eCRNumberDataGridViewTextBoxColumn.Width = 81;
             // 
-            // manualNameDataGridViewTextBoxColumn
+            // originatorDataGridViewTextBoxColumn
             // 
-            this.manualNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.manualNameDataGridViewTextBoxColumn.DataPropertyName = "ManualName";
-            this.manualNameDataGridViewTextBoxColumn.HeaderText = "ManualName";
-            this.manualNameDataGridViewTextBoxColumn.Name = "manualNameDataGridViewTextBoxColumn";
-            this.manualNameDataGridViewTextBoxColumn.Width = 128;
+            this.originatorDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.originatorDataGridViewTextBoxColumn.DataPropertyName = "Originator";
+            this.originatorDataGridViewTextBoxColumn.HeaderText = "Originator";
+            this.originatorDataGridViewTextBoxColumn.Name = "originatorDataGridViewTextBoxColumn";
+            this.originatorDataGridViewTextBoxColumn.Width = 103;
             // 
-            // tOCDataGridViewTextBoxColumn
+            // changeDataGridViewTextBoxColumn
             // 
-            this.tOCDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.tOCDataGridViewTextBoxColumn.DataPropertyName = "TOC";
-            this.tOCDataGridViewTextBoxColumn.HeaderText = "TOC";
-            this.tOCDataGridViewTextBoxColumn.Name = "tOCDataGridViewTextBoxColumn";
-            this.tOCDataGridViewTextBoxColumn.Width = 66;
+            this.changeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.changeDataGridViewTextBoxColumn.DataPropertyName = "Change";
+            this.changeDataGridViewTextBoxColumn.HeaderText = "Change";
+            this.changeDataGridViewTextBoxColumn.Name = "changeDataGridViewTextBoxColumn";
             // 
-            // issuedToDataGridViewTextBoxColumn
+            // typeApprovalDataGridViewTextBoxColumn
             // 
-            this.issuedToDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.issuedToDataGridViewTextBoxColumn.DataPropertyName = "IssuedTo";
-            this.issuedToDataGridViewTextBoxColumn.HeaderText = "IssuedTo";
-            this.issuedToDataGridViewTextBoxColumn.Name = "issuedToDataGridViewTextBoxColumn";
+            this.typeApprovalDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.typeApprovalDataGridViewTextBoxColumn.DataPropertyName = "TypeApproval";
+            this.typeApprovalDataGridViewTextBoxColumn.HeaderText = "Approval";
+            this.typeApprovalDataGridViewTextBoxColumn.Name = "typeApprovalDataGridViewTextBoxColumn";
+            this.typeApprovalDataGridViewTextBoxColumn.Width = 96;
             // 
-            // removedOrObsoleteDataGridViewTextBoxColumn
+            // qualityControlDataGridViewTextBoxColumn
             // 
-            this.removedOrObsoleteDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.removedOrObsoleteDataGridViewTextBoxColumn.DataPropertyName = "RemovedOrObsolete";
-            this.removedOrObsoleteDataGridViewTextBoxColumn.HeaderText = "RemovedOrObsolete";
-            this.removedOrObsoleteDataGridViewTextBoxColumn.Name = "removedOrObsoleteDataGridViewTextBoxColumn";
-            this.removedOrObsoleteDataGridViewTextBoxColumn.Width = 183;
+            this.qualityControlDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.qualityControlDataGridViewTextBoxColumn.DataPropertyName = "QualityControl";
+            this.qualityControlDataGridViewTextBoxColumn.HeaderText = "QualityControl";
+            this.qualityControlDataGridViewTextBoxColumn.Name = "qualityControlDataGridViewTextBoxColumn";
+            this.qualityControlDataGridViewTextBoxColumn.Width = 133;
+            // 
+            // purchasingDataGridViewTextBoxColumn
+            // 
+            this.purchasingDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.purchasingDataGridViewTextBoxColumn.DataPropertyName = "Purchasing";
+            this.purchasingDataGridViewTextBoxColumn.HeaderText = "Purchasing";
+            this.purchasingDataGridViewTextBoxColumn.Name = "purchasingDataGridViewTextBoxColumn";
+            this.purchasingDataGridViewTextBoxColumn.Width = 113;
+            // 
+            // engineeringDataGridViewTextBoxColumn
+            // 
+            this.engineeringDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.engineeringDataGridViewTextBoxColumn.DataPropertyName = "Engineering";
+            this.engineeringDataGridViewTextBoxColumn.HeaderText = "Engineering";
+            this.engineeringDataGridViewTextBoxColumn.Name = "engineeringDataGridViewTextBoxColumn";
+            this.engineeringDataGridViewTextBoxColumn.Width = 119;
+            // 
+            // manufacturingDataGridViewTextBoxColumn
+            // 
+            this.manufacturingDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.manufacturingDataGridViewTextBoxColumn.DataPropertyName = "Manufacturing";
+            this.manufacturingDataGridViewTextBoxColumn.HeaderText = "Manufacturing";
+            this.manufacturingDataGridViewTextBoxColumn.Name = "manufacturingDataGridViewTextBoxColumn";
+            this.manufacturingDataGridViewTextBoxColumn.Width = 136;
+            // 
+            // decisionDataGridViewTextBoxColumn
+            // 
+            this.decisionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.decisionDataGridViewTextBoxColumn.DataPropertyName = "Decision";
+            this.decisionDataGridViewTextBoxColumn.HeaderText = "Decision";
+            this.decisionDataGridViewTextBoxColumn.Name = "decisionDataGridViewTextBoxColumn";
+            this.decisionDataGridViewTextBoxColumn.Width = 95;
+            // 
+            // closedDataGridViewTextBoxColumn
+            // 
+            this.closedDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.closedDataGridViewTextBoxColumn.DataPropertyName = "Closed";
+            this.closedDataGridViewTextBoxColumn.HeaderText = "Closed";
+            this.closedDataGridViewTextBoxColumn.Name = "closedDataGridViewTextBoxColumn";
+            this.closedDataGridViewTextBoxColumn.Width = 83;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.Width = 69;
+            // 
+            // eCRTableAdapter
+            // 
+            this.eCRTableAdapter.ClearBeforeFill = true;
+            // 
+            // ecR_UsersTableAdapter1
+            // 
+            this.ecR_UsersTableAdapter1.ClearBeforeFill = true;
             // 
             // ECR
             // 
@@ -578,7 +682,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Button btnDuplicate;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnManageUsers;
@@ -602,19 +705,31 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private MotionDataSet motionDataSet;
         private System.Windows.Forms.Button btnSaveTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn manualNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn manualNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tOCDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn issuedToDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn removedOrObsoleteDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox comboTypeApproval;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboOriginator;
         private System.Windows.Forms.Button btnOriginators;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDisposition;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtChange;
         private System.Windows.Forms.Label label4;
+        private MotionDataSetTableAdapters.ECRTableAdapter eCRTableAdapter;
+        private System.Windows.Forms.TextBox txtOriginator;
+        private System.Windows.Forms.ComboBox comboDecision;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eCRNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn originatorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn changeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeApprovalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qualityControlDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn purchasingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn engineeringDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn manufacturingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn decisionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn closedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtClosed;
+        private MotionDataSetTableAdapters.ECR_UsersTableAdapter ecR_UsersTableAdapter1;
     }
 }
 

@@ -77,15 +77,20 @@ namespace Application_ControlNumberLog
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
 
-                int A = Convert.ToInt32(row.Cells[0].Value.ToString());
+                string A = row.Cells[0].Value.ToString();
                 string B = row.Cells[1].Value.ToString();
                 string C = row.Cells[2].Value.ToString();
                 string D = row.Cells[3].Value.ToString();
                 string E = row.Cells[4].Value.ToString();
                 string F = row.Cells[5].Value.ToString();
                 string G = row.Cells[6].Value.ToString();
+                string H = row.Cells[7].Value.ToString();
+                string I = row.Cells[8].Value.ToString();
+                int J = Convert.ToInt16(row.Cells[9].Value.ToString());
+                string K = row.Cells[10].Value.ToString();
+                string L = row.Cells[11].Value.ToString();
 
-                controlNumberLogTableAdapter.Insert(A, B, C, D, E, F, G);
+                ecrTableAdapter1.Insert(J, B, K, E, L, A, G, H, F, I, C, D);
             }
 
 

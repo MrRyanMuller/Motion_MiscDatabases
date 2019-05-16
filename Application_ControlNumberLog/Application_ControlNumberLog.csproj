@@ -69,6 +69,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ECRAddUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ECRAddUsers.Designer.cs">
+      <DependentUpon>ECRAddUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,24 @@
     </Compile>
     <Compile Include="ECR.Designer.cs">
       <DependentUpon>ECR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ECRLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ECRLogin.Designer.cs">
+      <DependentUpon>ECRLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ECRManageUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ECRManageUsers.Designer.cs">
+      <DependentUpon>ECRManageUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ECRNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ECRNew.Designer.cs">
+      <DependentUpon>ECRNew.cs</DependentUpon>
     </Compile>
     <Compile Include="ManualIssueLog.cs">
       <SubType>Form</SubType>
@@ -118,11 +142,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ECRAddUsers.resx">
+      <DependentUpon>ECRAddUsers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddUsers.resx">
       <DependentUpon>AddUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ECR.resx">
       <DependentUpon>ECR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ECRLogin.resx">
+      <DependentUpon>ECRLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ECRManageUsers.resx">
+      <DependentUpon>ECRManageUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ECRNew.resx">
+      <DependentUpon>ECRNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManualIssueLog.resx">
       <DependentUpon>ManualIssueLog.cs</DependentUpon>

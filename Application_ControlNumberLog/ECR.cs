@@ -14,6 +14,8 @@ namespace Application_ControlNumberLog
     {
         private bool LoggedIn = false;
         private bool Admin = false;
+        public string User;
+        public int UserID;
 
         public ECR()
         {
@@ -22,15 +24,17 @@ namespace Application_ControlNumberLog
 
         private void Main_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'motionDataSet.ManualIssueLog' table. You can move, or remove it, as needed.
-            /*this.manualIssueLogTableAdapter.Fill(this.motionDataSet.ManualIssueLog);
-            Login mLogin = new Login();
+            // TODO: This line of code loads data into the 'motionDataSet.ECR' table. You can move, or remove it, as needed.
+            this.eCRTableAdapter.Fill(this.motionDataSet.ECR);
+            ECRLogin mLogin = new ECRLogin();
             mLogin.ShowDialog(this);
             if (mLogin.LoggedIn != "Passing")
             {
                 this.Close();
             }
 
+            User = mLogin.User;
+            UserID = mLogin.UserID;
             Admin = mLogin.Admin;
 
             if (Admin != true)
@@ -38,70 +42,85 @@ namespace Application_ControlNumberLog
                 btnSave.Enabled = false;
                 btnSave.Visible = false;
 
+                txtECRNumber.Enabled = false;
+                txtOriginator.Enabled = false;
+                txtDate.Enabled = false;
+                txtChange.Enabled = false;
+                txtDisposition.Enabled = false;
+                comboTypeApproval.Enabled = false;
+                comboDecision.Enabled = false;
+                txtClosed.Enabled = false;
+
+                btnDelete.Enabled = false;
+                btnDelete.Visible = false;
+
                 dataGridView1.ReadOnly = true;
                 dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.AllowUserToDeleteRows = false;
 
-                txtECRNumber.Enabled = false;
-                txtManualName.Enabled = false;
-                txtRemoved.Enabled = false;
-                txtIssuedTo.Enabled = false;
-                txtDate.Enabled = false;
-
-                btnNew.Enabled = false;
-                btnNew.Visible = false;
-                btnDelete.Enabled = false;
-                btnDelete.Visible = false;
-                btnDuplicate.Enabled = false;
-                btnDuplicate.Visible = false;
+                btnSaveTable.Enabled = false;
+                btnSaveTable.Visible = false;
 
                 btnManageUsers.Enabled = false;
                 btnManageUsers.Visible = false;
-
-                btnSaveTable.Enabled = false;
-                btnSaveTable.Visible = false;
             }
             else
             {
                 LoggedIn = true;
             }
 
+            if (mLogin.Level == "Read-Only")
+            {
+                btnOriginators.Enabled = false;
+                btnOriginators.Visible = false;
+            }
 
-            txtECRNumber.DataBindings.Add(new Binding("Text", bindingSource1, "ManualNumber", true));
-            txtManualName.DataBindings.Add(new Binding("Text", bindingSource1, "ManualName", true));
-            txtRemoved.DataBindings.Add(new Binding("Text", bindingSource1, "RemovedOrObsolete", true));
-            txtIssuedTo.DataBindings.Add(new Binding("Text", bindingSource1, "IssuedTo", true));
-            txtDate.DataBindings.Add(new Binding("Text", bindingSource1, "TOC", true));
-            */
+
+            txtECRNumber.DataBindings.Add(new Binding("Text", bindingSource1, "ECR_Number", true));
+            txtOriginator.DataBindings.Add(new Binding("Text", bindingSource1, "Originator", true));
+            txtDate.DataBindings.Add(new Binding("Text", bindingSource1, "Date", true));
+            txtChange.DataBindings.Add(new Binding("Text", bindingSource1, "Change", true));
+            txtDisposition.DataBindings.Add(new Binding("Text", bindingSource1, "Disposition", true));
+            comboTypeApproval.DataBindings.Add(new Binding("Text", bindingSource1, "TypeApproval", true));
+            comboDecision.DataBindings.Add(new Binding("Text", bindingSource1, "Decision", true));
+            txtClosed.DataBindings.Add(new Binding("Text", bindingSource1, "Closed", true));
+
+            bindingSource1.CurrentChanged += new EventHandler(bindingsource_CurrentChanged);
+        }
+
+        protected void bindingsource_CurrentChanged(object sender, EventArgs e)
+        {
+            checkAdmin();
+        }
+
+        private void checkAdmin()
+        {
+            if (!Admin)
+            {
+                if (txtOriginator.Text == User)
+                {
+                    IsAdmin();
+                }
+                else
+                {
+                    NotAdmin();
+                }
+            }
         }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            bindingNavigator1.BindingSource.AddNew();
-            //txtECRNumber.Text = (Convert.ToInt32(manualIssueLogTableAdapter.GetIdentity().ToString()) + 1).ToString();
+
+            int newNum = Convert.ToInt32(eCRTableAdapter.GetIdentity().ToString()) + 1;
+            ECRNew mNew = new ECRNew(User, newNum);
+            mNew.ShowDialog(this);
+            this.eCRTableAdapter.Fill(this.motionDataSet.ECR);
+            bindingNavigator1.MoveLastItem.PerformClick();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnDuplicate_Click(object sender, EventArgs e)
-        {
-            /*
-            string temp2 = txtManualName.Text;
-            string temp3 = txtIssuedTo.Text;
-            string temp4 = txtDate.Text;
-            string temp6 = txtRemoved.Text;
-
-            bindingNavigator1.BindingSource.AddNew();
-
-            txtECRNumber.Text = (Convert.ToInt32(manualIssueLogTableAdapter.GetIdentity().ToString()) + 1).ToString();
-            txtManualName.Text = temp2;
-            txtIssuedTo.Text = temp3;
-            txtDate.Text = temp4;
-            txtRemoved.Text = temp6;
-            */
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -127,7 +146,8 @@ namespace Application_ControlNumberLog
                             break;
                         default:
                             bindingNavigator1.BindingSource.RemoveCurrent();
-                            //manualIssueLogTableAdapter.Update(motionDataSet.ManualIssueLog);
+                            eCRTableAdapter.Update(motionDataSet.ECR);
+                            checkAdmin();
                             break;
                     }
                     break;
@@ -139,7 +159,7 @@ namespace Application_ControlNumberLog
             if (!checkMandatory()) { return; }
             Validate();
             bindingSource1.EndEdit();
-            //manualIssueLogTableAdapter.Update(motionDataSet.ManualIssueLog);
+            eCRTableAdapter.Update(motionDataSet.ECR);
             MessageBox.Show("Saved!");
         }
 
@@ -147,7 +167,7 @@ namespace Application_ControlNumberLog
         {
             if (txtECRNumber.Text == "" || txtECRNumber.Text == null)
             {
-                MessageBox.Show("Manual Number required!");
+                MessageBox.Show("ECR Number required!");
                 return false;
             }
             return true;
@@ -155,7 +175,7 @@ namespace Application_ControlNumberLog
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
-            ManageUsers mUsers = new ManageUsers();
+            ECRManageUsers mUsers = new ECRManageUsers();
             mUsers.ShowDialog(this);
         }
 
@@ -164,8 +184,75 @@ namespace Application_ControlNumberLog
             if (!checkMandatory()) { return; }
             Validate();
             bindingSource1.EndEdit();
-            //manualIssueLogTableAdapter.Update(motionDataSet.ManualIssueLog);
+            eCRTableAdapter.Update(motionDataSet.ECR);
             MessageBox.Show("Saved!");
+        }
+
+        private void txtECRNumber_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void NotAdmin()
+        {
+            btnSave.Enabled = false;
+            btnSave.Visible = false;
+
+            txtChange.Enabled = false;
+
+            btnDelete.Enabled = false;
+            btnDelete.Visible = false;
+        }
+
+        private void IsAdmin()
+        {
+            btnSave.Enabled = true;
+            btnSave.Visible = true;
+
+            txtChange.Enabled = true;
+
+            btnDelete.Enabled = true;
+            btnDelete.Visible = true;
+        }
+
+        private void btnOriginators_Click(object sender, EventArgs e)
+        {
+            string mLevel = ecR_UsersTableAdapter1.getLevel(UserID);
+
+            if (mLevel == "Admin")
+            {
+                MessageBox.Show("Admins should just use the table view to update signatures.");
+                //return;
+            }
+            else if (mLevel == "Purchasing")
+            {
+                eCRTableAdapter.UpdatePurchasing(User, Convert.ToInt16(txtECRNumber.Text));
+                eCRTableAdapter.Fill(motionDataSet.ECR);
+                return;
+            }
+            else if (mLevel == "Engineering")
+            {
+                eCRTableAdapter.UpdateEngineering(User, Convert.ToInt16(txtECRNumber.Text));
+                eCRTableAdapter.Fill(motionDataSet.ECR);
+                return;
+            }
+            else if (mLevel == "Quality Control")
+            {
+                eCRTableAdapter.UpdateQC(User, Convert.ToInt16(txtECRNumber.Text));
+                eCRTableAdapter.Fill(motionDataSet.ECR);
+                return;
+            }
+            else if (mLevel == "Manufacturing")
+            {
+                eCRTableAdapter.UpdateManufacturing(User, Convert.ToInt16(txtECRNumber.Text));
+                eCRTableAdapter.Fill(motionDataSet.ECR);
+                return;
+            }
+            else
+            {
+                MessageBox.Show("There's a problem with your department name. Let an admin know.");
+                return;
+            }
         }
     }
 }

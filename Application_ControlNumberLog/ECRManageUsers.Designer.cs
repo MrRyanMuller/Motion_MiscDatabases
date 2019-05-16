@@ -1,6 +1,6 @@
 ﻿namespace Application_ControlNumberLog
 {
-    partial class ManageUsers
+    partial class ECRManageUsers
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageUsers));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ECRManageUsers));
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,7 +38,7 @@
             this.motionDataSet1 = new Application_ControlNumberLog.MotionDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.user_InfoTableAdapter = new Application_ControlNumberLog.MotionDataSetTableAdapters.User_InfoTableAdapter();
+            this.eCR_UsersTableAdapter = new Application_ControlNumberLog.MotionDataSetTableAdapters.ECR_UsersTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.motionDataSet1)).BeginInit();
             this.SuspendLayout();
@@ -81,7 +81,7 @@
             this.comboRemoveUser.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboRemoveUser.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboRemoveUser.DataSource = this.bindingSource1;
-            this.comboRemoveUser.DisplayMember = "user";
+            this.comboRemoveUser.DisplayMember = "Name";
             this.comboRemoveUser.FormattingEnabled = true;
             this.comboRemoveUser.Location = new System.Drawing.Point(16, 117);
             this.comboRemoveUser.Name = "comboRemoveUser";
@@ -91,7 +91,7 @@
             // 
             // bindingSource1
             // 
-            this.bindingSource1.DataMember = "User_Info";
+            this.bindingSource1.DataMember = "ECR_Users";
             this.bindingSource1.DataSource = this.motionDataSet1;
             // 
             // motionDataSet1
@@ -121,11 +121,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // user_InfoTableAdapter
+            // eCR_UsersTableAdapter
             // 
-            this.user_InfoTableAdapter.ClearBeforeFill = true;
+            this.eCR_UsersTableAdapter.ClearBeforeFill = true;
             // 
-            // ManageUsers
+            // ECRManageUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -139,9 +139,9 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "ManageUsers";
+            this.Name = "ECRManageUsers";
             this.Text = "Manage Users";
-            this.Load += new System.EventHandler(this.ManageUsers_Load);
+            this.Load += new System.EventHandler(this.ECRManageUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.motionDataSet1)).EndInit();
             this.ResumeLayout(false);
@@ -159,6 +159,6 @@
         private System.Windows.Forms.Button button1;
         private MotionDataSet motionDataSet1;
         private System.Windows.Forms.BindingSource bindingSource1;
-        private MotionDataSetTableAdapters.User_InfoTableAdapter user_InfoTableAdapter;
+        private MotionDataSetTableAdapters.ECR_UsersTableAdapter eCR_UsersTableAdapter;
     }
 }

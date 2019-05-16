@@ -17,8 +17,9 @@ namespace Application_ControlNumberLog
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new ControlNumberLog());
-            Application.Run(new ManualIssueLog());
-            //Application.Run(new ECR());
+            //Application.Run(new ManualIssueLog());
+            Application.Run(new ECR());
+            //Application.Run(new ECRManageUsers());
         }
     }
 }
