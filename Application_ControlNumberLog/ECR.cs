@@ -73,6 +73,8 @@ namespace Application_ControlNumberLog
             {
                 btnOriginators.Enabled = false;
                 btnOriginators.Visible = false;
+                btnNotify.Enabled = false;
+                btnNotify.Visible = false;
             }
 
 
@@ -90,22 +92,6 @@ namespace Application_ControlNumberLog
 
         protected void bindingsource_CurrentChanged(object sender, EventArgs e)
         {
-            checkAdmin();
-        }
-
-        private void checkAdmin()
-        {
-            if (!Admin)
-            {
-                if (txtOriginator.Text == User)
-                {
-                    IsAdmin();
-                }
-                else
-                {
-                    NotAdmin();
-                }
-            }
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -147,7 +133,6 @@ namespace Application_ControlNumberLog
                         default:
                             bindingNavigator1.BindingSource.RemoveCurrent();
                             eCRTableAdapter.Update(motionDataSet.ECR);
-                            checkAdmin();
                             break;
                     }
                     break;
@@ -190,7 +175,7 @@ namespace Application_ControlNumberLog
 
         private void txtECRNumber_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void NotAdmin()
@@ -253,6 +238,17 @@ namespace Application_ControlNumberLog
                 MessageBox.Show("There's a problem with your department name. Let an admin know.");
                 return;
             }
+        }
+
+        private void txtChange_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ECRNotify ECRN = new ECRNotify(User, txtECRNumber.Text.ToString());
+            ECRN.ShowDialog(this);
         }
     }
 }

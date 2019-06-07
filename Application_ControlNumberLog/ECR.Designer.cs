@@ -45,8 +45,6 @@
             this.comboTypeApproval = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.motionDataSet = new Application_ControlNumberLog.MotionDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -72,6 +70,9 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnSaveTable = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnNotify = new System.Windows.Forms.Button();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.motionDataSet = new Application_ControlNumberLog.MotionDataSet();
             this.eCRNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.originatorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.changeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,10 +90,10 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -109,6 +110,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage1.Controls.Add(this.btnNotify);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.txtClosed);
             this.tabPage1.Controls.Add(this.comboDecision);
@@ -189,7 +191,7 @@
             // 
             this.btnOriginators.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOriginators.AutoSize = true;
-            this.btnOriginators.Location = new System.Drawing.Point(537, 384);
+            this.btnOriginators.Location = new System.Drawing.Point(538, 351);
             this.btnOriginators.Name = "btnOriginators";
             this.btnOriginators.Size = new System.Drawing.Size(158, 30);
             this.btnOriginators.TabIndex = 106;
@@ -204,7 +206,7 @@
             this.txtDisposition.Location = new System.Drawing.Point(253, 156);
             this.txtDisposition.Multiline = true;
             this.txtDisposition.Name = "txtDisposition";
-            this.txtDisposition.Size = new System.Drawing.Size(230, 192);
+            this.txtDisposition.Size = new System.Drawing.Size(230, 171);
             this.txtDisposition.TabIndex = 105;
             // 
             // label6
@@ -225,8 +227,9 @@
             this.txtChange.Location = new System.Drawing.Point(24, 156);
             this.txtChange.Multiline = true;
             this.txtChange.Name = "txtChange";
-            this.txtChange.Size = new System.Drawing.Size(223, 192);
+            this.txtChange.Size = new System.Drawing.Size(223, 171);
             this.txtChange.TabIndex = 103;
+            this.txtChange.TextChanged += new System.EventHandler(this.txtChange_TextChanged);
             // 
             // label4
             // 
@@ -286,16 +289,6 @@
             this.bindingNavigator1.Size = new System.Drawing.Size(722, 25);
             this.bindingNavigator1.TabIndex = 96;
             this.bindingNavigator1.Text = "bindingNavigator1";
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "ECR";
-            this.bindingSource1.DataSource = this.motionDataSet;
-            // 
-            // motionDataSet
-            // 
-            this.motionDataSet.DataSetName = "MotionDataSet";
-            this.motionDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -368,7 +361,7 @@
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.AutoSize = true;
-            this.btnSave.Location = new System.Drawing.Point(622, 327);
+            this.btnSave.Location = new System.Drawing.Point(622, 306);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(98, 31);
             this.btnSave.TabIndex = 92;
@@ -380,7 +373,7 @@
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.AutoSize = true;
-            this.btnDelete.Location = new System.Drawing.Point(622, 290);
+            this.btnDelete.Location = new System.Drawing.Point(622, 269);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(98, 31);
             this.btnDelete.TabIndex = 91;
@@ -392,7 +385,7 @@
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.AutoSize = true;
-            this.btnClose.Location = new System.Drawing.Point(622, 253);
+            this.btnClose.Location = new System.Drawing.Point(622, 232);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(98, 31);
             this.btnClose.TabIndex = 90;
@@ -404,7 +397,7 @@
             // 
             this.btnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrevious.AutoSize = true;
-            this.btnPrevious.Location = new System.Drawing.Point(518, 327);
+            this.btnPrevious.Location = new System.Drawing.Point(518, 306);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(98, 31);
             this.btnPrevious.TabIndex = 89;
@@ -416,7 +409,7 @@
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNext.AutoSize = true;
-            this.btnNext.Location = new System.Drawing.Point(518, 290);
+            this.btnNext.Location = new System.Drawing.Point(518, 269);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(98, 31);
             this.btnNext.TabIndex = 88;
@@ -428,7 +421,7 @@
             // 
             this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNew.AutoSize = true;
-            this.btnNew.Location = new System.Drawing.Point(518, 253);
+            this.btnNew.Location = new System.Drawing.Point(518, 232);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(98, 31);
             this.btnNew.TabIndex = 86;
@@ -441,7 +434,7 @@
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic);
-            this.label16.Location = new System.Drawing.Point(524, 237);
+            this.label16.Location = new System.Drawing.Point(524, 216);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(185, 13);
             this.label16.TabIndex = 93;
@@ -452,7 +445,7 @@
             // 
             this.btnManageUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnManageUsers.AutoSize = true;
-            this.btnManageUsers.Location = new System.Drawing.Point(8, 362);
+            this.btnManageUsers.Location = new System.Drawing.Point(8, 341);
             this.btnManageUsers.Name = "btnManageUsers";
             this.btnManageUsers.Size = new System.Drawing.Size(142, 30);
             this.btnManageUsers.TabIndex = 33;
@@ -551,6 +544,28 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(717, 384);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // btnNotify
+            // 
+            this.btnNotify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNotify.AutoSize = true;
+            this.btnNotify.Location = new System.Drawing.Point(538, 183);
+            this.btnNotify.Name = "btnNotify";
+            this.btnNotify.Size = new System.Drawing.Size(158, 30);
+            this.btnNotify.TabIndex = 112;
+            this.btnNotify.Text = "Notify for this ECR";
+            this.btnNotify.UseVisualStyleBackColor = true;
+            this.btnNotify.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "ECR";
+            this.bindingSource1.DataSource = this.motionDataSet;
+            // 
+            // motionDataSet
+            // 
+            this.motionDataSet.DataSetName = "MotionDataSet";
+            this.motionDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // eCRNumberDataGridViewTextBoxColumn
             // 
@@ -664,11 +679,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -730,6 +745,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtClosed;
         private MotionDataSetTableAdapters.ECR_UsersTableAdapter ecR_UsersTableAdapter1;
+        private System.Windows.Forms.Button btnNotify;
     }
 }
 

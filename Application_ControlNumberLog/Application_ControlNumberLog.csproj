@@ -57,6 +57,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -104,6 +105,12 @@
     </Compile>
     <Compile Include="ECRNew.Designer.cs">
       <DependentUpon>ECRNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ECRNotify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ECRNotify.Designer.cs">
+      <DependentUpon>ECRNotify.cs</DependentUpon>
     </Compile>
     <Compile Include="ManualIssueLog.cs">
       <SubType>Form</SubType>
@@ -159,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ECRNew.resx">
       <DependentUpon>ECRNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ECRNotify.resx">
+      <DependentUpon>ECRNotify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManualIssueLog.resx">
       <DependentUpon>ManualIssueLog.cs</DependentUpon>
