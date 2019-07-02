@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ECR));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.btnNotify = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtClosed = new System.Windows.Forms.TextBox();
@@ -46,6 +48,8 @@
             this.comboTypeApproval = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.motionDataSet = new Application_ControlNumberLog.MotionDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -71,10 +75,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnSaveTable = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.motionDataSet = new Application_ControlNumberLog.MotionDataSet();
+            this.eCRTableAdapter = new Application_ControlNumberLog.MotionDataSetTableAdapters.ECRTableAdapter();
+            this.ecR_UsersTableAdapter1 = new Application_ControlNumberLog.MotionDataSetTableAdapters.ECR_UsersTableAdapter();
             this.eCRNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.originatorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.changeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,16 +88,14 @@
             this.decisionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.closedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eCRTableAdapter = new Application_ControlNumberLog.MotionDataSetTableAdapters.ECRTableAdapter();
-            this.ecR_UsersTableAdapter1 = new Application_ControlNumberLog.MotionDataSetTableAdapters.ECR_UsersTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -147,6 +147,30 @@
             this.tabPage1.Size = new System.Drawing.Size(728, 433);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Main";
+            // 
+            // btnReset
+            // 
+            this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnReset.AutoSize = true;
+            this.btnReset.Location = new System.Drawing.Point(262, 326);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(98, 31);
+            this.btnReset.TabIndex = 114;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSearch.AutoSize = true;
+            this.btnSearch.Location = new System.Drawing.Point(158, 326);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(98, 31);
+            this.btnSearch.TabIndex = 113;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnNotify
             // 
@@ -305,6 +329,16 @@
             this.bindingNavigator1.Size = new System.Drawing.Size(722, 25);
             this.bindingNavigator1.TabIndex = 96;
             this.bindingNavigator1.Text = "bindingNavigator1";
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "ECR";
+            this.bindingSource1.DataSource = this.motionDataSet;
+            // 
+            // motionDataSet
+            // 
+            this.motionDataSet.DataSetName = "MotionDataSet";
+            this.motionDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -561,39 +595,13 @@
             this.dataGridView1.Size = new System.Drawing.Size(717, 384);
             this.dataGridView1.TabIndex = 0;
             // 
-            // btnReset
+            // eCRTableAdapter
             // 
-            this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnReset.AutoSize = true;
-            this.btnReset.Location = new System.Drawing.Point(262, 326);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(98, 31);
-            this.btnReset.TabIndex = 114;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            this.eCRTableAdapter.ClearBeforeFill = true;
             // 
-            // btnSearch
+            // ecR_UsersTableAdapter1
             // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSearch.AutoSize = true;
-            this.btnSearch.Location = new System.Drawing.Point(158, 326);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(98, 31);
-            this.btnSearch.TabIndex = 113;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "ECR";
-            this.bindingSource1.DataSource = this.motionDataSet;
-            // 
-            // motionDataSet
-            // 
-            this.motionDataSet.DataSetName = "MotionDataSet";
-            this.motionDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.ecR_UsersTableAdapter1.ClearBeforeFill = true;
             // 
             // eCRNumberDataGridViewTextBoxColumn
             // 
@@ -613,10 +621,12 @@
             // 
             // changeDataGridViewTextBoxColumn
             // 
-            this.changeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.changeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.changeDataGridViewTextBoxColumn.DataPropertyName = "Change";
             this.changeDataGridViewTextBoxColumn.HeaderText = "Change";
+            this.changeDataGridViewTextBoxColumn.MinimumWidth = 200;
             this.changeDataGridViewTextBoxColumn.Name = "changeDataGridViewTextBoxColumn";
+            this.changeDataGridViewTextBoxColumn.Width = 200;
             // 
             // typeApprovalDataGridViewTextBoxColumn
             // 
@@ -682,14 +692,6 @@
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             this.dateDataGridViewTextBoxColumn.Width = 69;
             // 
-            // eCRTableAdapter
-            // 
-            this.eCRTableAdapter.ClearBeforeFill = true;
-            // 
-            // ecR_UsersTableAdapter1
-            // 
-            this.ecR_UsersTableAdapter1.ClearBeforeFill = true;
-            // 
             // ECR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -707,11 +709,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -759,6 +761,12 @@
         private System.Windows.Forms.TextBox txtOriginator;
         private System.Windows.Forms.ComboBox comboDecision;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtClosed;
+        private MotionDataSetTableAdapters.ECR_UsersTableAdapter ecR_UsersTableAdapter1;
+        private System.Windows.Forms.Button btnNotify;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn eCRNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn originatorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn changeDataGridViewTextBoxColumn;
@@ -770,12 +778,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn decisionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn closedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtClosed;
-        private MotionDataSetTableAdapters.ECR_UsersTableAdapter ecR_UsersTableAdapter1;
-        private System.Windows.Forms.Button btnNotify;
-        private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnSearch;
     }
 }
 
