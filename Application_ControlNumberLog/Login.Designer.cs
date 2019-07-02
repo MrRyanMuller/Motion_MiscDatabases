@@ -84,6 +84,8 @@
             // 
             // dropName
             // 
+            this.dropName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dropName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.dropName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.dropName.FormattingEnabled = true;
@@ -115,6 +117,8 @@
             // 
             // txtPassword
             // 
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPassword.Location = new System.Drawing.Point(110, 138);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassword.MaxLength = 25;
@@ -125,6 +129,8 @@
             // 
             // txtUserlevel
             // 
+            this.txtUserlevel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUserlevel.Enabled = false;
             this.txtUserlevel.Location = new System.Drawing.Point(28, 31);
             this.txtUserlevel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -164,7 +170,7 @@
             this.AcceptButton = this.Ok;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(290, 242);
+            this.ClientSize = new System.Drawing.Size(298, 240);
             this.Controls.Add(this.labelFailPassword);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.Ok);

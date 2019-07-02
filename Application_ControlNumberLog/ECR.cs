@@ -260,5 +260,17 @@ namespace Application_ControlNumberLog
             ECRNotify ECRN = new ECRNotify(User, txtECRNumber.Text.ToString());
             ECRN.ShowDialog(this);
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            Search mSearch = new Search();
+            mSearch.ShowDialog(this);
+            this.eCRTableAdapter.FillBySearch(this.motionDataSet.ECR, mSearch.Change);
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            this.eCRTableAdapter.Fill(this.motionDataSet.ECR);
+        }
     }
 }

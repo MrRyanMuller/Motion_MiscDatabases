@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ECR));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnNotify = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtClosed = new System.Windows.Forms.TextBox();
             this.comboDecision = new System.Windows.Forms.ComboBox();
@@ -70,7 +71,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnSaveTable = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnNotify = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.motionDataSet = new Application_ControlNumberLog.MotionDataSet();
             this.eCRNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -110,6 +112,8 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage1.Controls.Add(this.btnReset);
+            this.tabPage1.Controls.Add(this.btnSearch);
             this.tabPage1.Controls.Add(this.btnNotify);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.txtClosed);
@@ -143,6 +147,18 @@
             this.tabPage1.Size = new System.Drawing.Size(728, 433);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Main";
+            // 
+            // btnNotify
+            // 
+            this.btnNotify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNotify.AutoSize = true;
+            this.btnNotify.Location = new System.Drawing.Point(538, 169);
+            this.btnNotify.Name = "btnNotify";
+            this.btnNotify.Size = new System.Drawing.Size(158, 30);
+            this.btnNotify.TabIndex = 112;
+            this.btnNotify.Text = "Notify for this ECR";
+            this.btnNotify.UseVisualStyleBackColor = true;
+            this.btnNotify.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label8
             // 
@@ -191,7 +207,7 @@
             // 
             this.btnOriginators.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOriginators.AutoSize = true;
-            this.btnOriginators.Location = new System.Drawing.Point(538, 351);
+            this.btnOriginators.Location = new System.Drawing.Point(538, 341);
             this.btnOriginators.Name = "btnOriginators";
             this.btnOriginators.Size = new System.Drawing.Size(158, 30);
             this.btnOriginators.TabIndex = 106;
@@ -206,7 +222,7 @@
             this.txtDisposition.Location = new System.Drawing.Point(253, 156);
             this.txtDisposition.Multiline = true;
             this.txtDisposition.Name = "txtDisposition";
-            this.txtDisposition.Size = new System.Drawing.Size(230, 171);
+            this.txtDisposition.Size = new System.Drawing.Size(230, 157);
             this.txtDisposition.TabIndex = 105;
             // 
             // label6
@@ -227,7 +243,7 @@
             this.txtChange.Location = new System.Drawing.Point(24, 156);
             this.txtChange.Multiline = true;
             this.txtChange.Name = "txtChange";
-            this.txtChange.Size = new System.Drawing.Size(223, 171);
+            this.txtChange.Size = new System.Drawing.Size(223, 157);
             this.txtChange.TabIndex = 103;
             this.txtChange.TextChanged += new System.EventHandler(this.txtChange_TextChanged);
             // 
@@ -361,7 +377,7 @@
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.AutoSize = true;
-            this.btnSave.Location = new System.Drawing.Point(622, 306);
+            this.btnSave.Location = new System.Drawing.Point(622, 292);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(98, 31);
             this.btnSave.TabIndex = 92;
@@ -373,7 +389,7 @@
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.AutoSize = true;
-            this.btnDelete.Location = new System.Drawing.Point(622, 269);
+            this.btnDelete.Location = new System.Drawing.Point(622, 255);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(98, 31);
             this.btnDelete.TabIndex = 91;
@@ -385,7 +401,7 @@
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.AutoSize = true;
-            this.btnClose.Location = new System.Drawing.Point(622, 232);
+            this.btnClose.Location = new System.Drawing.Point(622, 218);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(98, 31);
             this.btnClose.TabIndex = 90;
@@ -397,7 +413,7 @@
             // 
             this.btnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrevious.AutoSize = true;
-            this.btnPrevious.Location = new System.Drawing.Point(518, 306);
+            this.btnPrevious.Location = new System.Drawing.Point(518, 292);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(98, 31);
             this.btnPrevious.TabIndex = 89;
@@ -409,7 +425,7 @@
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNext.AutoSize = true;
-            this.btnNext.Location = new System.Drawing.Point(518, 269);
+            this.btnNext.Location = new System.Drawing.Point(518, 255);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(98, 31);
             this.btnNext.TabIndex = 88;
@@ -421,7 +437,7 @@
             // 
             this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNew.AutoSize = true;
-            this.btnNew.Location = new System.Drawing.Point(518, 232);
+            this.btnNew.Location = new System.Drawing.Point(518, 218);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(98, 31);
             this.btnNew.TabIndex = 86;
@@ -434,7 +450,7 @@
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic);
-            this.label16.Location = new System.Drawing.Point(524, 216);
+            this.label16.Location = new System.Drawing.Point(524, 202);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(185, 13);
             this.label16.TabIndex = 93;
@@ -445,7 +461,7 @@
             // 
             this.btnManageUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnManageUsers.AutoSize = true;
-            this.btnManageUsers.Location = new System.Drawing.Point(8, 341);
+            this.btnManageUsers.Location = new System.Drawing.Point(8, 327);
             this.btnManageUsers.Name = "btnManageUsers";
             this.btnManageUsers.Size = new System.Drawing.Size(142, 30);
             this.btnManageUsers.TabIndex = 33;
@@ -545,17 +561,29 @@
             this.dataGridView1.Size = new System.Drawing.Size(717, 384);
             this.dataGridView1.TabIndex = 0;
             // 
-            // btnNotify
+            // btnReset
             // 
-            this.btnNotify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNotify.AutoSize = true;
-            this.btnNotify.Location = new System.Drawing.Point(538, 183);
-            this.btnNotify.Name = "btnNotify";
-            this.btnNotify.Size = new System.Drawing.Size(158, 30);
-            this.btnNotify.TabIndex = 112;
-            this.btnNotify.Text = "Notify for this ECR";
-            this.btnNotify.UseVisualStyleBackColor = true;
-            this.btnNotify.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnReset.AutoSize = true;
+            this.btnReset.Location = new System.Drawing.Point(262, 326);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(98, 31);
+            this.btnReset.TabIndex = 114;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSearch.AutoSize = true;
+            this.btnSearch.Location = new System.Drawing.Point(158, 326);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(98, 31);
+            this.btnSearch.TabIndex = 113;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // bindingSource1
             // 
@@ -746,6 +774,8 @@
         private System.Windows.Forms.TextBox txtClosed;
         private MotionDataSetTableAdapters.ECR_UsersTableAdapter ecR_UsersTableAdapter1;
         private System.Windows.Forms.Button btnNotify;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
 
