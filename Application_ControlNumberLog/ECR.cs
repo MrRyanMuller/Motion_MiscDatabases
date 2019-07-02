@@ -204,6 +204,12 @@ namespace Application_ControlNumberLog
         {
             string mLevel = ecR_UsersTableAdapter1.getLevel(UserID);
 
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to approve this with your name?", "Confirmation", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
             if (mLevel == "Admin")
             {
                 MessageBox.Show("Admins should just use the table view to update signatures.");
@@ -213,24 +219,28 @@ namespace Application_ControlNumberLog
             {
                 eCRTableAdapter.UpdatePurchasing(User, Convert.ToInt16(txtECRNumber.Text));
                 eCRTableAdapter.Fill(motionDataSet.ECR);
+                MessageBox.Show("Thanks for you approval. Confirm your name is shown correctly in the table.");
                 return;
             }
             else if (mLevel == "Engineering")
             {
                 eCRTableAdapter.UpdateEngineering(User, Convert.ToInt16(txtECRNumber.Text));
                 eCRTableAdapter.Fill(motionDataSet.ECR);
+                MessageBox.Show("Thanks for you approval. Confirm your name is shown correctly in the table.");
                 return;
             }
             else if (mLevel == "Quality Control")
             {
                 eCRTableAdapter.UpdateQC(User, Convert.ToInt16(txtECRNumber.Text));
                 eCRTableAdapter.Fill(motionDataSet.ECR);
+                MessageBox.Show("Thanks for you approval. Confirm your name is shown correctly in the table.");
                 return;
             }
             else if (mLevel == "Manufacturing")
             {
                 eCRTableAdapter.UpdateManufacturing(User, Convert.ToInt16(txtECRNumber.Text));
                 eCRTableAdapter.Fill(motionDataSet.ECR);
+                MessageBox.Show("Thanks for you approval. Confirm your name is shown correctly in the table.");
                 return;
             }
             else
