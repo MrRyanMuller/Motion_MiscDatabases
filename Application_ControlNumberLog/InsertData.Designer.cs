@@ -29,13 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsertData));
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.motionDataDataSet1 = new Application_ControlNumberLog.MotionDataSet();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.controlNumberLogTableAdapter = new Application_ControlNumberLog.MotionDataSetTableAdapters.ControlNumberLogTableAdapter();
-            this.ecrTableAdapter1 = new Application_ControlNumberLog.MotionDataSetTableAdapters.ECRTableAdapter();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +44,11 @@
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.motionDataDataSet1 = new Application_ControlNumberLog.MotionDataSet();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.controlNumberLogTableAdapter = new Application_ControlNumberLog.MotionDataSetTableAdapters.ControlNumberLogTableAdapter();
+            this.ecrTableAdapter1 = new Application_ControlNumberLog.MotionDataSetTableAdapters.ECRTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.motionDataDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -84,34 +85,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(815, 450);
             this.dataGridView1.TabIndex = 5;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(42, 479);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // motionDataDataSet1
-            // 
-            this.motionDataDataSet1.DataSetName = "MotionDataDataSet";
-            this.motionDataDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "ControlNumberLog";
-            this.bindingSource1.DataSource = this.motionDataDataSet1;
-            // 
-            // controlNumberLogTableAdapter
-            // 
-            this.controlNumberLogTableAdapter.ClearBeforeFill = true;
-            // 
-            // ecrTableAdapter1
-            // 
-            this.ecrTableAdapter1.ClearBeforeFill = true;
             // 
             // Column1
             // 
@@ -173,6 +146,34 @@
             this.Column12.HeaderText = "Column12";
             this.Column12.Name = "Column12";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(42, 479);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // motionDataDataSet1
+            // 
+            this.motionDataDataSet1.DataSetName = "MotionDataDataSet";
+            this.motionDataDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "ControlNumberLog";
+            this.bindingSource1.DataSource = this.motionDataDataSet1;
+            // 
+            // controlNumberLogTableAdapter
+            // 
+            this.controlNumberLogTableAdapter.ClearBeforeFill = true;
+            // 
+            // ecrTableAdapter1
+            // 
+            this.ecrTableAdapter1.ClearBeforeFill = true;
+            // 
             // InsertData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,6 +182,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InsertData";
             this.Text = "InsertData";
             this.Load += new System.EventHandler(this.InsertData_Load);

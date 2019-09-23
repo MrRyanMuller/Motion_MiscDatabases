@@ -34,20 +34,20 @@
             this.Cancel = new System.Windows.Forms.Button();
             this.Ok = new System.Windows.Forms.Button();
             this.dropName = new System.Windows.Forms.ComboBox();
+            this.eCRUsersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.motionDataSet = new Application_ControlNumberLog.MotionDataSet();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUserlevel = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.motionDataSet = new Application_ControlNumberLog.MotionDataSet();
             this.eCR_UsersTableAdapter = new Application_ControlNumberLog.MotionDataSetTableAdapters.ECR_UsersTableAdapter();
             this.motionDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eCRUsersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motionDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eCRUsersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motionDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // labelFailPassword
@@ -99,6 +99,16 @@
             this.dropName.TabIndex = 16;
             this.dropName.ValueMember = "ID";
             this.dropName.SelectedIndexChanged += new System.EventHandler(this.dropName_SelectedIndexChanged);
+            // 
+            // eCRUsersBindingSource
+            // 
+            this.eCRUsersBindingSource.DataMember = "ECR_Users";
+            this.eCRUsersBindingSource.DataSource = this.motionDataSet;
+            // 
+            // motionDataSet
+            // 
+            this.motionDataSet.DataSetName = "MotionDataSet";
+            this.motionDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label3
             // 
@@ -157,11 +167,6 @@
             this.bindingSource1.DataMember = "ECR_Users";
             this.bindingSource1.DataSource = this.motionDataSet;
             // 
-            // motionDataSet
-            // 
-            this.motionDataSet.DataSetName = "MotionDataSet";
-            this.motionDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // eCR_UsersTableAdapter
             // 
             this.eCR_UsersTableAdapter.ClearBeforeFill = true;
@@ -170,11 +175,6 @@
             // 
             this.motionDataSetBindingSource.DataSource = this.motionDataSet;
             this.motionDataSetBindingSource.Position = 0;
-            // 
-            // eCRUsersBindingSource
-            // 
-            this.eCRUsersBindingSource.DataMember = "ECR_Users";
-            this.eCRUsersBindingSource.DataSource = this.motionDataSet;
             // 
             // ECRLogin
             // 
@@ -197,10 +197,10 @@
             this.Name = "ECRLogin";
             this.Text = "ECRLogin";
             this.Load += new System.EventHandler(this.ECRLogin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motionDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eCRUsersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motionDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

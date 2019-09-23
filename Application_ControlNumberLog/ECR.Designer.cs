@@ -75,8 +75,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnSaveTable = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.eCRTableAdapter = new Application_ControlNumberLog.MotionDataSetTableAdapters.ECRTableAdapter();
-            this.ecR_UsersTableAdapter1 = new Application_ControlNumberLog.MotionDataSetTableAdapters.ECR_UsersTableAdapter();
             this.eCRNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.originatorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.changeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,6 +86,8 @@
             this.decisionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.closedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eCRTableAdapter = new Application_ControlNumberLog.MotionDataSetTableAdapters.ECRTableAdapter();
+            this.ecR_UsersTableAdapter1 = new Application_ControlNumberLog.MotionDataSetTableAdapters.ECR_UsersTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -595,14 +595,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(717, 384);
             this.dataGridView1.TabIndex = 0;
             // 
-            // eCRTableAdapter
-            // 
-            this.eCRTableAdapter.ClearBeforeFill = true;
-            // 
-            // ecR_UsersTableAdapter1
-            // 
-            this.ecR_UsersTableAdapter1.ClearBeforeFill = true;
-            // 
             // eCRNumberDataGridViewTextBoxColumn
             // 
             this.eCRNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -692,6 +684,14 @@
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             this.dateDataGridViewTextBoxColumn.Width = 69;
             // 
+            // eCRTableAdapter
+            // 
+            this.eCRTableAdapter.ClearBeforeFill = true;
+            // 
+            // ecR_UsersTableAdapter1
+            // 
+            this.ecR_UsersTableAdapter1.ClearBeforeFill = true;
+            // 
             // ECR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -701,7 +701,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ECR";
-            this.Text = "Manual Issue Log Database";
+            this.Text = "ECR Database";
             this.Load += new System.EventHandler(this.Main_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

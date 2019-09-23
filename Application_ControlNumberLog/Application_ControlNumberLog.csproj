@@ -7,7 +7,7 @@
     <ProjectGuid>{89D9D83F-E42A-4568-80D5-5D8E1BCE27AD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Application_ControlNumberLog</RootNamespace>
-    <AssemblyName>Application_ControlNumberLog</AssemblyName>
+    <AssemblyName>ManualIssueLog</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

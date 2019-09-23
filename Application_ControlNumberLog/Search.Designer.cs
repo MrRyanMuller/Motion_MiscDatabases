@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Search));
             this.btnNew = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDWGTitle = new System.Windows.Forms.TextBox();
@@ -81,6 +82,7 @@
             this.Controls.Add(this.txtDWGTitle);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Search";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Search";
