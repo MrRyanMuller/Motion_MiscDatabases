@@ -164,5 +164,12 @@ namespace Application_ControlNumberLog
             manualIssueLogTableAdapter.Update(motionDataSet.ManualIssueLog);
             MessageBox.Show("Saved!");
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            ManualIssueLogSearch mSearch = new ManualIssueLogSearch();
+            mSearch.ShowDialog();
+            manualIssueLogTableAdapter.FillBySearch(motionDataSet.ManualIssueLog, mSearch.Manual, mSearch.TOC);
+        }
     }
 }

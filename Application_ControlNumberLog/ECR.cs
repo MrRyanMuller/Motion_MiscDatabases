@@ -14,8 +14,11 @@ namespace Application_ControlNumberLog
     {
         private bool LoggedIn = false;
         private bool Admin = false;
+        private bool Engineering = false;
         public string User;
         public int UserID;
+
+
 
         public ECR()
         {
@@ -24,6 +27,8 @@ namespace Application_ControlNumberLog
 
         private void Main_Load(object sender, EventArgs e)
         {
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+
             // TODO: This line of code loads data into the 'motionDataSet.ECR' table. You can move, or remove it, as needed.
             this.eCRTableAdapter.Fill(this.motionDataSet.ECR);
             ECRLogin mLogin = new ECRLogin();
@@ -36,14 +41,19 @@ namespace Application_ControlNumberLog
             User = mLogin.User;
             UserID = mLogin.UserID;
             Admin = mLogin.Admin;
+            Engineering = mLogin.Engineering;
 
-            if (Admin != true)
+            if (Admin != true && Engineering != true)
             {
                 btnSave.Enabled = false;
                 btnSave.Visible = false;
 
                 txtECRNumber.Enabled = false;
+
+                
                 txtOriginator.Enabled = false;
+
+
                 txtDate.Enabled = false;
                 txtChange.Enabled = false;
                 txtDisposition.Enabled = false;
@@ -66,6 +76,11 @@ namespace Application_ControlNumberLog
             }
             else
             {
+                if(Engineering == true)
+                {
+                    txtOriginator.Enabled = false;
+                }
+
                 LoggedIn = true;
             }
 
@@ -141,6 +156,13 @@ namespace Application_ControlNumberLog
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if(User != txtOriginator.Text && Engineering == true)
+            {
+                MessageBox.Show("Engineers can only change their own entries.");
+                return;
+            }
+
+
             if (!checkMandatory()) { return; }
             Validate();
             bindingSource1.EndEdit();
@@ -272,5 +294,66 @@ namespace Application_ControlNumberLog
         {
             this.eCRTableAdapter.Fill(this.motionDataSet.ECR);
         }
+
+        /*Printing*/
+        //Print button
+        private void btnSort_Click(object sender, EventArgs e)
+        {
+            printDocument1.DefaultPageSettings.Landscape = true;
+            PrintDialog printDialog1 = new PrintDialog();
+            printDialog1.Document = printDocument1;
+            DialogResult result = printDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+        }
+
+
+        private void printDocument1_PrintPage(System.Object sender,
+               System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Font mFont = new Font("Dot Net Perls", 12);
+            float x = e.MarginBounds.Left;
+            float y = e.MarginBounds.Top;
+
+            int countLines = 0;
+            int maxLines = 20;
+
+            string DataExport = string.Empty;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                string DataLine = string.Empty;
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    string CellVal = cell.Value.ToString();
+                    //Shorten long cells
+                    if(CellVal.Length > 20)
+                    {
+                        CellVal = CellVal.Substring(0, 20) + ".....";
+                    }
+
+                    if(DataLine != string.Empty)
+                    {
+                        DataLine += " - ";
+                    }
+                    DataLine += CellVal;
+                }
+                DataExport += DataLine + "\r\n";
+                countLines++;
+                if (countLines >= maxLines)
+                    break;
+            }
+            e.Graphics.DrawString(DataExport, mFont, Brushes.Black, x, y);
+        }
+        /*End Printing*/
+
+        private void bindingNavigatorMoveNextItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
     }
 }

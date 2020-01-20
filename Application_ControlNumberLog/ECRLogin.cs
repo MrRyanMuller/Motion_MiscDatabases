@@ -14,6 +14,7 @@ namespace Application_ControlNumberLog
     public partial class ECRLogin : Form
     {
         public bool Admin = false;
+        public bool Engineering = false;
         public string LoggedIn = "Fail";
         public string Level;
         public string User;
@@ -61,6 +62,10 @@ namespace Application_ControlNumberLog
                 if (eCR_UsersTableAdapter.getLevel(ID).ToString() == "Admin")
                 {
                     this.Admin = true;
+                }
+                else if(eCR_UsersTableAdapter.getLevel(ID).ToString() == "Engineering")
+                {
+                    this.Engineering = true;
                 }
                 this.Level = eCR_UsersTableAdapter.getLevel(ID).ToString();
                 this.LoggedIn = "Passing";

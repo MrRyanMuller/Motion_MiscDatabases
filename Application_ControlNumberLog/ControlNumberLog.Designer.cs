@@ -32,7 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlNumberLog));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtDateDestroyed = new System.Windows.Forms.TextBox();
+            this.txtDateIssued = new System.Windows.Forms.TextBox();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.motionDataSet = new Application_ControlNumberLog.MotionDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -65,12 +69,9 @@
             this.comboFileType = new System.Windows.Forms.ComboBox();
             this.txtControlNumber = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtDateIssued = new System.Windows.Forms.TextBox();
-            this.txtDateDestroyed = new System.Windows.Forms.TextBox();
             this.btnSaveTable = new System.Windows.Forms.Button();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.motionDataSet = new Application_ControlNumberLog.MotionDataSet();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.controlNumberLogTableAdapter = new Application_ControlNumberLog.MotionDataSetTableAdapters.ControlNumberLogTableAdapter();
             this.controlNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drawingNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.revDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,15 +79,14 @@
             this.issuedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDestroyedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hardCopyOrComputerFileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.controlNumberLogTableAdapter = new Application_ControlNumberLog.MotionDataSetTableAdapters.ControlNumberLogTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -135,6 +135,21 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Main";
             // 
+            // txtDateDestroyed
+            // 
+            this.txtDateDestroyed.Location = new System.Drawing.Point(442, 142);
+            this.txtDateDestroyed.Name = "txtDateDestroyed";
+            this.txtDateDestroyed.Size = new System.Drawing.Size(100, 26);
+            this.txtDateDestroyed.TabIndex = 98;
+            this.txtDateDestroyed.TextChanged += new System.EventHandler(this.txtDateDestroyed_TextChanged);
+            // 
+            // txtDateIssued
+            // 
+            this.txtDateIssued.Location = new System.Drawing.Point(420, 83);
+            this.txtDateIssued.Name = "txtDateIssued";
+            this.txtDateIssued.Size = new System.Drawing.Size(100, 26);
+            this.txtDateIssued.TabIndex = 97;
+            // 
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = null;
@@ -162,6 +177,16 @@
             this.bindingNavigator1.Size = new System.Drawing.Size(740, 25);
             this.bindingNavigator1.TabIndex = 96;
             this.bindingNavigator1.Text = "bindingNavigator1";
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "ControlNumberLog";
+            this.bindingSource1.DataSource = this.motionDataSet;
+            // 
+            // motionDataSet
+            // 
+            this.motionDataSet.DataSetName = "MotionDataSet";
+            this.motionDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -375,7 +400,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 20);
             this.label5.TabIndex = 27;
-            this.label5.Text = "Issued By";
+            this.label5.Text = "Issued To";
             // 
             // txtIssuedBy
             // 
@@ -456,6 +481,18 @@
             this.tabPage2.Text = "Data";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnSaveTable
+            // 
+            this.btnSaveTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveTable.AutoSize = true;
+            this.btnSaveTable.Location = new System.Drawing.Point(640, 6);
+            this.btnSaveTable.Name = "btnSaveTable";
+            this.btnSaveTable.Size = new System.Drawing.Size(98, 31);
+            this.btnSaveTable.TabIndex = 93;
+            this.btnSaveTable.Text = "Save";
+            this.btnSaveTable.UseVisualStyleBackColor = true;
+            this.btnSaveTable.Click += new System.EventHandler(this.button1_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToOrderColumns = true;
@@ -478,42 +515,9 @@
             this.dataGridView1.Size = new System.Drawing.Size(740, 409);
             this.dataGridView1.TabIndex = 0;
             // 
-            // txtDateIssued
+            // controlNumberLogTableAdapter
             // 
-            this.txtDateIssued.Location = new System.Drawing.Point(420, 83);
-            this.txtDateIssued.Name = "txtDateIssued";
-            this.txtDateIssued.Size = new System.Drawing.Size(100, 26);
-            this.txtDateIssued.TabIndex = 97;
-            // 
-            // txtDateDestroyed
-            // 
-            this.txtDateDestroyed.Location = new System.Drawing.Point(442, 142);
-            this.txtDateDestroyed.Name = "txtDateDestroyed";
-            this.txtDateDestroyed.Size = new System.Drawing.Size(100, 26);
-            this.txtDateDestroyed.TabIndex = 98;
-            this.txtDateDestroyed.TextChanged += new System.EventHandler(this.txtDateDestroyed_TextChanged);
-            // 
-            // btnSaveTable
-            // 
-            this.btnSaveTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveTable.AutoSize = true;
-            this.btnSaveTable.Location = new System.Drawing.Point(640, 6);
-            this.btnSaveTable.Name = "btnSaveTable";
-            this.btnSaveTable.Size = new System.Drawing.Size(98, 31);
-            this.btnSaveTable.TabIndex = 93;
-            this.btnSaveTable.Text = "Save";
-            this.btnSaveTable.UseVisualStyleBackColor = true;
-            this.btnSaveTable.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "ControlNumberLog";
-            this.bindingSource1.DataSource = this.motionDataSet;
-            // 
-            // motionDataSet
-            // 
-            this.motionDataSet.DataSetName = "MotionDataSet";
-            this.motionDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.controlNumberLogTableAdapter.ClearBeforeFill = true;
             // 
             // controlNumberDataGridViewTextBoxColumn
             // 
@@ -551,7 +555,7 @@
             // 
             this.issuedByDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.issuedByDataGridViewTextBoxColumn.DataPropertyName = "IssuedBy";
-            this.issuedByDataGridViewTextBoxColumn.HeaderText = "IssuedBy";
+            this.issuedByDataGridViewTextBoxColumn.HeaderText = "IssuedTo";
             this.issuedByDataGridViewTextBoxColumn.Name = "issuedByDataGridViewTextBoxColumn";
             // 
             // dateDestroyedDataGridViewTextBoxColumn
@@ -570,10 +574,6 @@
             this.hardCopyOrComputerFileDataGridViewTextBoxColumn.Name = "hardCopyOrComputerFileDataGridViewTextBoxColumn";
             this.hardCopyOrComputerFileDataGridViewTextBoxColumn.Width = 217;
             // 
-            // controlNumberLogTableAdapter
-            // 
-            this.controlNumberLogTableAdapter.ClearBeforeFill = true;
-            // 
             // ControlNumberLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -591,11 +591,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -641,6 +641,9 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private MotionDataSet motionDataSet;
         private MotionDataSetTableAdapters.ControlNumberLogTableAdapter controlNumberLogTableAdapter;
+        private System.Windows.Forms.TextBox txtDateDestroyed;
+        private System.Windows.Forms.TextBox txtDateIssued;
+        private System.Windows.Forms.Button btnSaveTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn controlNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn drawingNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn revDataGridViewTextBoxColumn;
@@ -648,9 +651,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn issuedByDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDestroyedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hardCopyOrComputerFileDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TextBox txtDateDestroyed;
-        private System.Windows.Forms.TextBox txtDateIssued;
-        private System.Windows.Forms.Button btnSaveTable;
     }
 }
 

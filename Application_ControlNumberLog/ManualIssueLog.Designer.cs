@@ -35,8 +35,6 @@
             this.txtRemoved = new System.Windows.Forms.TextBox();
             this.txtIssuedTo = new System.Windows.Forms.TextBox();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.motionDataSet = new Application_ControlNumberLog.MotionDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -66,20 +64,23 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnSaveTable = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.motionDataSet = new Application_ControlNumberLog.MotionDataSet();
             this.manualNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.manualNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tOCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.issuedToDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.removedOrObsoleteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.manualIssueLogTableAdapter = new Application_ControlNumberLog.MotionDataSetTableAdapters.ManualIssueLogTableAdapter();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -96,6 +97,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage1.Controls.Add(this.btnSearch);
             this.tabPage1.Controls.Add(this.txtRemoved);
             this.tabPage1.Controls.Add(this.txtIssuedTo);
             this.tabPage1.Controls.Add(this.bindingNavigator1);
@@ -164,16 +166,6 @@
             this.bindingNavigator1.Size = new System.Drawing.Size(740, 25);
             this.bindingNavigator1.TabIndex = 96;
             this.bindingNavigator1.Text = "bindingNavigator1";
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "ManualIssueLog";
-            this.bindingSource1.DataSource = this.motionDataSet;
-            // 
-            // motionDataSet
-            // 
-            this.motionDataSet.DataSetName = "MotionDataSet";
-            this.motionDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -334,7 +326,7 @@
             // 
             this.btnManageUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnManageUsers.AutoSize = true;
-            this.btnManageUsers.Location = new System.Drawing.Point(3, 379);
+            this.btnManageUsers.Location = new System.Drawing.Point(3, 372);
             this.btnManageUsers.Name = "btnManageUsers";
             this.btnManageUsers.Size = new System.Drawing.Size(131, 30);
             this.btnManageUsers.TabIndex = 33;
@@ -452,6 +444,16 @@
             this.dataGridView1.Size = new System.Drawing.Size(740, 408);
             this.dataGridView1.TabIndex = 0;
             // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "ManualIssueLog";
+            this.bindingSource1.DataSource = this.motionDataSet;
+            // 
+            // motionDataSet
+            // 
+            this.motionDataSet.DataSetName = "MotionDataSet";
+            this.motionDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // manualNumberDataGridViewTextBoxColumn
             // 
             this.manualNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -495,6 +497,17 @@
             // 
             this.manualIssueLogTableAdapter.ClearBeforeFill = true;
             // 
+            // btnSearch
+            // 
+            this.btnSearch.AutoSize = true;
+            this.btnSearch.Location = new System.Drawing.Point(288, 187);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(98, 31);
+            this.btnSearch.TabIndex = 99;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // ManualIssueLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -512,11 +525,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.motionDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -565,6 +578,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tOCDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn issuedToDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn removedOrObsoleteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
 
